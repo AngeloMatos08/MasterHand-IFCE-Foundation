@@ -17,9 +17,9 @@ class System: Identifiable {
     var genre1: String
     var genre2: String
     
-//    var storeLink: String
-//    var store_name: String
-//    var desc: String
+    var storeLink: String
+    var store_name: String
+    var desc: String
     
     var price: Double?
     
@@ -30,15 +30,15 @@ class System: Identifiable {
             .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty } // Filtra strings vazias
     }
     
-    init(id: Int, name: String, cover: Data?, genre1: String, genre2: String, /*storeLink: String, store_name: String, desc: String,*/ price: Double?) {
+    init(id: Int, name: String, cover: Data?, genre1: String, genre2: String, storeLink: String, store_name: String, desc: String, price: Double?) {
         self.id = id
         self.name = name
         self.cover = cover
         self.genre1 = genre1
         self.genre2 = genre2
-//        self.storeLink = storeLink
-//        self.store_name = store_name
-//        self.desc = desc
+        self.storeLink = storeLink
+        self.store_name = store_name
+        self.desc = desc
         self.price = price
     }
 }

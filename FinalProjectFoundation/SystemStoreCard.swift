@@ -48,9 +48,12 @@ struct SystemStoreCard: View {
         id: 1,
         name: "Ordem Paranormal",
         cover: nil,
-        genre1: "",
-        genre2: "",
-        price: 99.99
+        genre1: "Terror",
+        genre2: "Mistério",
+        storeLink: "https://www.apple.com",
+        store_name: "Loja Oficial",
+        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
+        price: 99.90
     )
     
     SystemStoreCard(system: sample)

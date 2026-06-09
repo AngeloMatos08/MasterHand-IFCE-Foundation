@@ -33,15 +33,15 @@ struct CategoryView: View {
 }
 
 
-#Preview {
-    let sampleSystems = [
-        System(id: 1, name: "Ordem Paranormal", cover: nil, genre1: "Terror", genre2: "Investigação", price: 99.90),
-        System(id: 2, name: "Tormenta20", cover: nil, genre1: "Fantasia", genre2: "Medieval", price: 67.42),
-        System(id: 3, name: "Oblívio", cover: nil, genre1: "Anime", genre2: "Multiverso", price: 00.00)
-    ]
-    
-    CategoryView(
-        category: "Sistemas em Destaque",
-        systems: sampleSystems
-    )
-}
+//#Preview {
+//    let sampleSystems = [
+//        System(id: 1, name: "Ordem Paranormal", cover: nil, genre1: "Terror", genre2: "Investigação", price: 99.90),
+//        System(id: 2, name: "Tormenta20", cover: nil, genre1: "Fantasia", genre2: "Medieval", price: 67.42),
+//        System(id: 3, name: "Oblívio", cover: nil, genre1: "Anime", genre2: "Multiverso", price: 00.00)
+//    ]
+//    
+//    CategoryView(
+//        category: "Sistemas em Destaque",
+//        systems: sampleSystems
+//    )
+//}
