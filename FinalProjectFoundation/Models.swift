@@ -14,8 +14,8 @@ class Title: Identifiable {
     var id: Int
     var name: String
     var cover: Data?
-    var genre1: String?
-    var genre2: String?
+    var genre1: String
+    var genre2: String
     
 //    var storeLink: String
 //    var store_name: String
