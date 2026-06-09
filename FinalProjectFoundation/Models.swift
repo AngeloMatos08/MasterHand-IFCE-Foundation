@@ -10,7 +10,7 @@ import SwiftDataSQLite
 
 @SQLiteTable("system")
 @Model
-class Title: Identifiable {
+class System: Identifiable {
     var id: Int
     var name: String
     var cover: Data?
