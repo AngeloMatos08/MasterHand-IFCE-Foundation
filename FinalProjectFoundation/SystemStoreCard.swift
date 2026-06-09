@@ -8,27 +8,25 @@ import SwiftUI
 import SwiftData
 
 struct SystemStoreCard: View {
-    let title: Title
+    let system: System
 
     var body: some View {
         // Frame com a capa e o frame dos textos
         VStack(alignment: .leading, spacing: 8) {
-            SystemCover(cover: title.cover)
+            SystemCover(cover: system.cover)
                 .frame(width: 120)
             
             // frame dos textos
             VStack(alignment: .leading, spacing: 4) {
                 
                 // Título do sistema
-                Text(title.name)
+                Text(system.name)
                     .font(.headline)
                     .lineLimit(2) // Limita a 2 linhas para não quebrar o layout se o nome for gigante
                     .frame(width: 120, height: 44, alignment: .topLeading)
 
-                // Ao envelopar a condicional em um Group, todos os textos dentro dele
-                // herdarão automaticamente os modificadores de fonte e cor aplicados abaixo!
                 Group {
-                    if let price = title.price {
+                    if let price = system.price {
                         if price == 0 {
                             Text("Gratuito")
                         } else {
@@ -46,8 +44,7 @@ struct SystemStoreCard: View {
 }
 
 #Preview {
-    // Criamos um dado falso temporário apenas para o Xcode desenhar na tela de preview
-    let sampleTitle = Title(
+    let sample = System(
         id: 1,
         name: "Ordem Paranormal",
         cover: nil,
@@ -56,6 +53,6 @@ struct SystemStoreCard: View {
         price: 99.99
     )
     
-    SystemStoreCard(title: sampleTitle)
+    SystemStoreCard(system: sample)
         .padding()
 }

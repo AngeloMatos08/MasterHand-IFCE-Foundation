@@ -10,28 +10,26 @@ import SwiftDataSQLite
 
 @SQLiteTable("system")
 @Model
-class Title: Identifiable {
+class System: Identifiable {
     var id: Int
     var name: String
     var cover: Data?
-    
-    // 1. Declaramos as duas colunas individuais que existem no seu banco de dados SQLite
-    var genre1: String = ""
-    var genre2: String = ""
+    var genre1: String
+    var genre2: String
     
 //    var storeLink: String
 //    var store_name: String
 //    var desc: String
+    
     var price: Double?
     
-    // 2. A função agora encontra 'genre1' e 'genre2' declarados acima e compila perfeitamente
+    //Pega e retorna os generos deixando-os bonitinho 😊
     func getGenreList() -> [String] {
         return [genre1, genre2]
             .compactMap { $0 } // Remove tudo o que for 'nil' (nulo) e transforma [String?] em [String]
             .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty } // Filtra strings vazias
     }
     
-    // 3. Atualizamos o construtor para aceitar os dois gêneros individualmente
     init(id: Int, name: String, cover: Data?, genre1: String, genre2: String, /*storeLink: String, store_name: String, desc: String,*/ price: Double?) {
         self.id = id
         self.name = name
