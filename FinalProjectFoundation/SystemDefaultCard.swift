@@ -9,12 +9,12 @@ import SwiftData
 import SwiftDataSQLite
 
 // Este é o Card de Favorito puro e altamente reutilizável.
-struct FavoritesCard: View {
+struct SystemDefaultCard: View {
     let title: Title
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            SystemCover(cover: title.cover, aspectRatio: 16/25)
+            SystemCover(cover: title.cover)
                 .frame(width: 165)
             
             VStack(alignment: .center, spacing: 4) {
@@ -50,6 +50,6 @@ struct FavoritesCard: View {
         genre2: "Medieval",
         price: 99.90
     )
-    FavoritesCard(title: sample)
+    SystemDefaultCard(title: sample)
         .padding()
 }
