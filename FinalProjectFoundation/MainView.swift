@@ -1,21 +1,22 @@
-//
-//  ContentView.swift
-//  FinalProjectFoundation
-//
-//  Created by Beatriz Leonel on 28/05/26.
-//
-
 import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(){
+            HStack{
+                TabView {
+                    Tab("Sistemas", systemImage: "hexagon") {
+                        //tela dos sistemas
+                    }
+                    Tab("Favoritos", systemImage: "heart") {
+                        //tela favoritos
+                    }
+                    Tab("Buscar", systemImage: "magnifyingglass", role:.search){
+                        //tela de busca
+                    }
+                }
+            }.padding(.horizontal, 20)
         }
-        .padding()
     }
 }
 
