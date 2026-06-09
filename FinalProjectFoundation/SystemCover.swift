@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CapaSistemaView: View {
+struct SystemCover: View {
     let cover: Data?
     
     var body: some View {
@@ -16,7 +16,7 @@ struct CapaSistemaView: View {
             Image(systemName:"hexagon.fill")
                 .resizable()
                 .scaledToFit()
-                .frame(width:100,height:100)
+                .padding(50)
         
             // se a capa existe -> exibe
             if let cover = cover,
@@ -32,7 +32,7 @@ struct CapaSistemaView: View {
 }
 
 #Preview {
-    CapaSistemaView(
+    SystemCover(
         cover: nil
     )
 }
