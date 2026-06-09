@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct CapaSistemaView: View {
+    let cover: Data?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.gray
+            Image(systemName:"hexagon.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width:100,height:100)
+        
+            // se a capa existe -> exibe
+            if let cover = cover,
+               let uiImage = UIImage(data: cover) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
+        .aspectRatio(16/26, contentMode: .fit)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
 
 #Preview {
-    CapaSistemaView()
+    CapaSistemaView(
+        cover: nil
+    )
 }
