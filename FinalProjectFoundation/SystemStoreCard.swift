@@ -49,8 +49,10 @@ struct SystemStoreCard: View {
     // Criamos um dado falso temporário apenas para o Xcode desenhar na tela de preview
     let sampleTitle = Title(
         id: 1,
-        name: "Tormenta20",
+        name: "Ordem Paranormal",
         cover: nil,
+        genre1: "",
+        genre2: "",
         price: 99.99
     )
     

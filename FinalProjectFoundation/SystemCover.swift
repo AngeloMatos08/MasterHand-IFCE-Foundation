@@ -10,15 +10,21 @@ import SwiftUI
 struct SystemCover: View {
     let cover: Data?
     
+    // Tornamos a proporção parametrizável com um valor padrão (16/26), 
+    // permitindo que este mesmo componente seja usado em cards de tamanhos diferentes!
+    var aspectRatio: CGFloat = 16/26
+    
     var body: some View {
-        ZStack{
-            Color.gray
-            Image(systemName:"hexagon.fill")
+        ZStack {
+            // Placeholder estilizado para RPG
+            Color.gray.opacity(0.3)
+            
+            Image(systemName: "hexagon.fill")
                 .resizable()
                 .scaledToFit()
-                .padding(50)
+                .foregroundColor(.gray.opacity(0.5))
+                .padding(30) // Reduzido o padding para o ícone não sumir em frames menores
         
-            // se a capa existe -> exibe
             if let cover = cover,
                let uiImage = UIImage(data: cover) {
                 Image(uiImage: uiImage)
@@ -26,13 +32,13 @@ struct SystemCover: View {
                     .scaledToFill()
             }
         }
-        .aspectRatio(16/26, contentMode: .fit)
+        .aspectRatio(aspectRatio, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
 
 #Preview {
-    SystemCover(
-        cover: nil
-    )
+    SystemCover(cover: nil)
+        .frame(width: 120)
+        .padding()
 }
