@@ -24,15 +24,13 @@ struct SystemDefaultCard: View {
                     .lineLimit(1)
                 
                 HStack(spacing: 6) {
-//                    ForEach(title.getGenreList(), id: \.self) { genre in
-//                        Text(genre)
-//                            .font(.subheadline)
-//                            .padding(.horizontal, 8)
-//                            .padding(.vertical, 4)
-//                    }
-                    Text("Sobrevivência | Aventura")
+                    Text(system.getGenreList().joined(separator: " | "))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
-                        
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.8)
+                        .frame(width: 165, height: 32, alignment: .top)
                 }
                 .font(.subheadline)
             }

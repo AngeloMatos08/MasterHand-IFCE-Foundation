@@ -36,7 +36,8 @@ struct SystemCover: View {
 }
 
 #Preview {
-    SystemCover(cover: nil)
+    let sampleCover = UIImage(named: "Ordem")?.pngData()
+    SystemCover(cover: sampleCover)
         .frame(width: 120)
         .padding()
 }

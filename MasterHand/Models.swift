@@ -42,3 +42,15 @@ class System: Identifiable {
         self.price = price
     }
 }
+
+@SQLiteTable("Categoria")
+@Model
+class Categoria: Identifiable {
+    var id: Int
+    var nome: String
+    
+    init(id: Int, nome: String) {
+        self.id = id
+        self.nome = nome
+    }
+}

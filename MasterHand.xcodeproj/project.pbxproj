@@ -15,9 +15,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		54D73C122FC868FE00F8864B /* FinalProjectFoundation */ = {
+		54D73C122FC868FE00F8864B /* MasterHand */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinalProjectFoundation;
+			path = MasterHand;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +37,7 @@
 		54D73C072FC868FE00F8864B = {
 			isa = PBXGroup;
 			children = (
-				54D73C122FC868FE00F8864B /* FinalProjectFoundation */,
+				54D73C122FC868FE00F8864B /* MasterHand */,
 				54D73C112FC868FE00F8864B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +66,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				54D73C122FC868FE00F8864B /* FinalProjectFoundation */,
+				54D73C122FC868FE00F8864B /* MasterHand */,
 			);
 			name = FinalProjectFoundation;
 			packageProductDependencies = (
@@ -91,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "FinalProjectFoundation" */;
+			buildConfigurationList = 54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "MasterHand" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -320,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "FinalProjectFoundation" */ = {
+		54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "MasterHand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D73C192FC868FF00F8864B /* Debug */,
