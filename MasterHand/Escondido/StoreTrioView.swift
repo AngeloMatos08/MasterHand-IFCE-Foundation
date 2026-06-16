@@ -22,6 +22,7 @@ struct StoreTrioView: View {
             Text(category)
                 .font(.title)
                 .fontWeight(.semibold)
+                .padding(.horizontal,20)
             
             // trio de sistemas
             HStack(alignment: .center, spacing: 8) {

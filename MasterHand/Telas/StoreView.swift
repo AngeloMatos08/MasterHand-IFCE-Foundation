@@ -7,7 +7,7 @@ struct StoreView: View {
     @Query var systems: [System]
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(){
             List(){
                 StoreTrioView(category: "Sugeridos")
                     .listRowSeparator(.hidden)
@@ -31,4 +31,9 @@ struct StoreView: View {
 
 #Preview {
     StoreView()
+        .modelContainer( // ✅
+            for: [System.self],
+            inMemory: true,
+            sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
+            )
 }
