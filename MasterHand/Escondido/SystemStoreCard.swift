@@ -9,40 +9,58 @@ import SwiftData
 
 struct SystemStoreCard: View {
     let system: System
+    
+    // 1. Criamos um estado privado para controlar se a sheet deve ser exibida ou não.
+    // Começa como 'false' porque a tela de detalhes inicia fechada.
+    @State private var isShowingDetails = false
 
     var body: some View {
-        // Frame com a capa e o frame dos textos
-        VStack(alignment: .leading, spacing: 8) {
-            SystemCover(cover: system.cover)
-                .frame(width: 120)
-            
-            // frame dos textos
-            VStack(alignment: .leading, spacing: 4) {
+        // 2. Transformamos o contêiner principal em um Button.
+        // Ao ser clicado, ele altera o estado 'isShowingDetails' para true.
+        Button(action: {
+            isShowingDetails = true
+        }) {
+            // Frame com a capa e o frame dos textos (conteúdo visual do card)
+            VStack(alignment: .leading, spacing: 8) {
+                SystemCover(cover: system.cover)
+                    .frame(width: 120)
                 
-                // Título do sistema
-                Text(system.name)
-                    .font(.headline)
-                    .foregroundStyle(.black)
-                    .lineLimit(2) // Limita a 2 linhas para não quebrar o layout se o nome for gigante
-                    .frame(width: 120, height: 44, alignment: .topLeading)
+                // frame dos textos
+                VStack(alignment: .leading, spacing: 4) {
+                    
+                    // Título do sistema
+                    Text(system.name)
+                        .font(.headline)
+                        .foregroundStyle(.black)
+                        .lineLimit(2) // Limita a 2 linhas para não quebrar o layout se o nome for gigante
+                        .frame(width: 120, height: 44, alignment: .topLeading)
 
-                Group {
-                    if let price = system.price {
-                        if price == 0 {
-                            Text("Gratuito")
+                    Group {
+                        if let price = system.price {
+                            if price == 0 {
+                                Text("Gratuito")
+                            } else {
+                                Text(price.formatted(.currency(code: "BRL")))
+                            }
                         } else {
-                            Text(price.formatted(.currency(code: "BRL")))
+                            Text("Preço indisponível")
                         }
-                    } else {
-                        Text("Preço indisponível")
                     }
-                }
-                .font(.footnote)
-                .foregroundStyle(.black)
+                    .font(.footnote)
+                    .foregroundStyle(.black)
 
+                }
             }
+            .frame(width: 120)
         }
-        .frame(width: 120)
+        // 3. O estilo .plain impede que o SwiftUI pinte os textos de azul (comportamento padrão de botões)
+        .buttonStyle(.plain)
+        
+        // 4. O modificador .sheet monitora o estado '$isShowingDetails'.
+        // Quando ele for true, ele apresenta a view informada no bloco.
+        .sheet(isPresented: $isShowingDetails) {
+            SystemDetails(system: system)
+        }
     }
 }
 
