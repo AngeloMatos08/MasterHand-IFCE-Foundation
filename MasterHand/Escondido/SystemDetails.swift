@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+import SwiftDataSQLite
 
 struct SystemDetails: View {
     @Environment(\.dismiss) var dismiss
@@ -31,7 +33,7 @@ struct SystemDetails: View {
 
                     if let url = URL(string: system.storeLink) {
                         Link(destination: url) {
-                            Text("Disponível em: \(system.store_name)")
+                            Text("Disponível em: \(system.storeName)")
                                 .font(.footnote)
                                 .padding()
                                 .background(Color.blue.opacity(0.1))
@@ -58,27 +60,23 @@ struct SystemDetails: View {
 }
 
 #Preview {
-    let cat1 = Category(
-        id: "terror",
-        name: "Terror"
-    )
-    let cat2 = Category(
-        id: "investigacao",
-        name: "Investigativo"
-    )
-    
     let sample = System(
         id: 1,
         name: "Ordem Paranormal",
         cover: nil,
-        categories: [cat1, cat2],
-        categoryShow1: cat1,
-        categoryShow2: cat2,
+        categoryShow1: "Terror",
+        categoryShow2: "Investigação",
         storeLink: "https://www.apple.com",
-        store_name: "Loja Oficial",
+        storeName: "Loja Oficial",
         desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
         price: 99.90
     )
     
-    SystemDetails(system: sample)
+    SystemDefaultCard(system: sample)
+    
+    .modelContainer( // ✅
+        for: [System.self],
+        inMemory: true,
+        sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
+    )
 }
