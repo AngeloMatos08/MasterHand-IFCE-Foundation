@@ -27,7 +27,7 @@ struct SystemCover: View {
                let uiImage = UIImage(data: cover) {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .scaledToFill()
+                    .aspectRatio(aspectRatio, contentMode: .fill)
             }
         }
         .aspectRatio(aspectRatio, contentMode: .fit)
