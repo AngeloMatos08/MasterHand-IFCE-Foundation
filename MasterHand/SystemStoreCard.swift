@@ -53,7 +53,7 @@ struct SystemStoreCard: View {
         storeLink: "https://www.apple.com",
         store_name: "Loja Oficial",
         desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
-        price: 99.90
+        price: 0
     )
     
     SystemStoreCard(system: sample)
