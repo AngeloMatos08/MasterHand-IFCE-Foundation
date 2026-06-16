@@ -43,9 +43,9 @@ class System: Identifiable {
     }
 }
 
-@SQLiteTable("Categoria")
+@SQLiteTable("category")
 @Model
-class Categoria: Identifiable {
+class Category: Identifiable {
     var id: Int
     var nome: String
     

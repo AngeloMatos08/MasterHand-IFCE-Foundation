@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoryView: View {
+struct StoreTrioView: View {
 
     let category: String
     let systems: [System]

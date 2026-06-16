@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54D73C102FC868FE00F8864B /* FinalProjectFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D73C102FC868FE00F8864B /* MasterHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 		54D73C112FC868FE00F8864B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54D73C102FC868FE00F8864B /* FinalProjectFoundation.app */,
+				54D73C102FC868FE00F8864B /* MasterHand.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54D73C0F2FC868FE00F8864B /* FinalProjectFoundation */ = {
+		54D73C0F2FC868FE00F8864B /* MasterHand */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "FinalProjectFoundation" */;
+			buildConfigurationList = 54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "MasterHand" */;
 			buildPhases = (
 				54D73C0C2FC868FE00F8864B /* Sources */,
 				54D73C0D2FC868FE00F8864B /* Frameworks */,
@@ -68,12 +68,12 @@
 			fileSystemSynchronizedGroups = (
 				54D73C122FC868FE00F8864B /* MasterHand */,
 			);
-			name = FinalProjectFoundation;
+			name = MasterHand;
 			packageProductDependencies = (
 				54D73C2B2FC8720F00F8864B /* SwiftDataSQLite */,
 			);
 			productName = FinalProjectFoundation;
-			productReference = 54D73C102FC868FE00F8864B /* FinalProjectFoundation.app */;
+			productReference = 54D73C102FC868FE00F8864B /* MasterHand.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54D73C0F2FC868FE00F8864B /* FinalProjectFoundation */,
+				54D73C0F2FC868FE00F8864B /* MasterHand */,
 			);
 		};
 /* End PBXProject section */
@@ -329,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "FinalProjectFoundation" */ = {
+		54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "MasterHand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D73C1C2FC868FF00F8864B /* Debug */,

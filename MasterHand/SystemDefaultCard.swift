@@ -8,7 +8,6 @@ import SwiftUI
 import SwiftData
 import SwiftDataSQLite
 
-// Este é o Card de Favorito puro e altamente reutilizável.
 struct SystemDefaultCard: View {
     let system: System
     
