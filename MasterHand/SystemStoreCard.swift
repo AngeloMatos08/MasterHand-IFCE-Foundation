@@ -44,18 +44,27 @@ struct SystemStoreCard: View {
 }
 
 #Preview {
+    let cat1 = Category(
+        id: 1,
+        nome: "Terror"
+    )
+    let cat2 = Category(
+        id: 1,
+        nome: "Investigativo"
+    )
+    
     let sample = System(
         id: 1,
         name: "Ordem Paranormal",
         cover: nil,
-        genre1: "Terror",
-        genre2: "Mistério",
+        categories: [cat1, cat2],
+        categoryShow1: cat1,
+        categoryShow2: cat2,
         storeLink: "https://www.apple.com",
         store_name: "Loja Oficial",
         desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
-        price: 0
+        price: 99.90
     )
-    
     SystemStoreCard(system: sample)
         .padding()
 }

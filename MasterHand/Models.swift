@@ -20,8 +20,18 @@ class System: Identifiable {
     var storeLink: String
     var store_name: String
     var desc: String
-    
     var price: Double?
+    
+    //metodo que retorna a sting com as showcategories
+    func getShowCategories() -> String {
+        let names = [categoryShow1?.name, categoryShow2?.name]
+        
+        let validNames = names
+            .compactMap { $0 } // Remove qualquer valor nulo caso a categoria não exista
+            .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty } // Remove textos vazios
+    
+        return validNames.joined(separator: " | ")
+    }
     
     init(id: Int, name: String, cover: Data?, categories: [Category]?, categoryShow1: Category, categoryShow2: Category, storeLink: String, store_name: String, desc: String, price: Double?) {
         self.id = id
@@ -41,10 +51,10 @@ class System: Identifiable {
 @Model
 class Category: Identifiable {
     var id: Int
-    var nome: String
+    var name: String
     
-    init(id: Int, nome: String) {
+    init(id: Int, name: String) {
         self.id = id
-        self.nome = nome
+        self.name = name
     }
 }
