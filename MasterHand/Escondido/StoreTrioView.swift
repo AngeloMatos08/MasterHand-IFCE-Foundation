@@ -11,7 +11,7 @@ import SwiftDataSQLite
 
 struct StoreTrioView: View {
     
-    @Query(sort: \System.id) var systems: [System]
+    @Query var systems: [System]
     
     let category: String
     
@@ -22,7 +22,6 @@ struct StoreTrioView: View {
             Text(category)
                 .font(.title)
                 .fontWeight(.semibold)
-                .padding(.horizontal, 20)
             
             // trio de sistemas
             HStack(alignment: .center, spacing: 8) {

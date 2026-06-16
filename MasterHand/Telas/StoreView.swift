@@ -5,17 +5,27 @@ import SwiftDataSQLite
 struct StoreView: View {
     
     @Query var systems: [System]
-
+    
     var body: some View {
         NavigationStack{
-//            List{
-//                ForEach(systems);label: do {
-//                    StoreTrioView(category: "Flavio Bolsonaro", systems: systems)
-//                }
-//                    
-//                }
+            List(){
+                StoreTrioView(category: "Sugeridos")
+                    .listRowSeparator(.hidden)
+                StoreTrioView(category: "Fantasia")
+                    .listRowSeparator(.hidden)
+                StoreTrioView(category: "Sobrevivência")
+                    .listRowSeparator(.hidden)
+                StoreTrioView(category: "Faroeste")
+                    .listRowSeparator(.hidden)
+                
             }
-        Text("Hello, World!")
+
+            .listStyle(.plain)
+            .navigationTitle("Sistemas")
+            
+            Text("Hello, World!")
+        }
+        
     }
 }
 
