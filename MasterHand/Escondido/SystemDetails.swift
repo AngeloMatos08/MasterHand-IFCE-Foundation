@@ -26,7 +26,7 @@ struct SystemDetails: View {
                     Text(system.getShowCategories())
                         .font(.subheadline)
 
-                    Text(system.description)
+                    Text(system.desc)
                         .padding()
 
                     if let url = URL(string: system.storeLink) {

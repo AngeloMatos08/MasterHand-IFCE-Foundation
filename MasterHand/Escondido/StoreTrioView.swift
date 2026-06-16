@@ -8,26 +8,32 @@
 import SwiftUI
 
 struct StoreTrioView: View {
-
     let category: String
     let systems: [System]
     
+    @State private var selectedSystem: System?
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // nome da categoria
             Text(category)
                 .font(.title)
                 .fontWeight(.semibold)
-                .padding(.horizontal, 20)
             
-            // trio de sistemas
             HStack(alignment: .center, spacing: 8) {
-                
-                // Exibimos no máximo 3 cards usando o prefix(3)
                 ForEach(systems.prefix(3)) { system in
-                    SystemStoreCard(system: system)
+                    // O card agora é um botão que define o sistema selecionado
+                    Button(action: {
+                        selectedSystem = system
+                    }) {
+                        SystemStoreCard(system: system)
+                    }
+                    .buttonStyle(.plain)
                 }
-            }.padding(.horizontal)
+            }
+        }
+        // Sempre que selectedSystem ganhar um valor, a sheet sobe automaticamente!
+        .sheet(item: $selectedSystem) { system in
+            SystemDetails(system: system)
         }
     }
 }
@@ -56,8 +62,21 @@ struct StoreTrioView: View {
         price: 99.90
     )
     
+    let sample2 = System(
+        id: 1,
+        name: "flavio oblsonaro",
+        cover: nil,
+        categories: [cat1, cat2],
+        categoryShow1: cat1,
+        categoryShow2: cat2,
+        storeLink: "https://www.apple.com",
+        store_name: "Loja Oficial",
+        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
+        price: 99.90
+    )
+    
     StoreTrioView(
         category: "Sistemas em Destaque",
-        systems: [sample, sample, sample]
+        systems: [sample, sample, sample2]
     )
 }

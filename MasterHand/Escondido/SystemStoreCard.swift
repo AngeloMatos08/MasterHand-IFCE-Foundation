@@ -22,6 +22,7 @@ struct SystemStoreCard: View {
                 // Título do sistema
                 Text(system.name)
                     .font(.headline)
+                    .foregroundStyle(.black)
                     .lineLimit(2) // Limita a 2 linhas para não quebrar o layout se o nome for gigante
                     .frame(width: 120, height: 44, alignment: .topLeading)
 
@@ -37,6 +38,8 @@ struct SystemStoreCard: View {
                     }
                 }
                 .font(.footnote)
+                .foregroundStyle(.black)
+
             }
         }
         .frame(width: 120)
