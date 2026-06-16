@@ -45,12 +45,12 @@ struct SystemStoreCard: View {
 
 #Preview {
     let cat1 = Category(
-        id: 1,
-        nome: "Terror"
+        id: "terror",
+        name: "Terror"
     )
     let cat2 = Category(
-        id: 1,
-        nome: "Investigativo"
+        id: "investigacao",
+        name: "Investigativo"
     )
     
     let sample = System(
@@ -65,6 +65,7 @@ struct SystemStoreCard: View {
         desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
         price: 99.90
     )
+    
     SystemStoreCard(system: sample)
         .padding()
 }

@@ -40,12 +40,12 @@ struct SystemDefaultCard: View {
 
 #Preview {
     let cat1 = Category(
-        id: 1,
-        nome: "Terror"
+        id: "terror",
+        name: "Terror"
     )
     let cat2 = Category(
-        id: 1,
-        nome: "Investigativo"
+        id: "investigacao",
+        name: "Investigativo"
     )
     
     let sample = System(

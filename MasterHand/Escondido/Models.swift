@@ -33,7 +33,7 @@ class System: Identifiable {
         return validNames.joined(separator: " | ")
     }
     
-    init(id: Int, name: String, cover: Data?, categories: [Category]?, categoryShow1: Category, categoryShow2: Category, storeLink: String, store_name: String, desc: String, price: Double?) {
+    init(id: Int, name: String, cover: Data?, categories: [Category]?, categoryShow1: Category?, categoryShow2: Category?, storeLink: String, store_name: String, desc: String, price: Double?) {
         self.id = id
         self.name = name
         self.cover = cover
@@ -49,12 +49,32 @@ class System: Identifiable {
 
 @SQLiteTable("category")
 @Model
-class Category: Identifiable {
-    var id: Int
+class Category: Identifiable, Codable {
+    var id: String
     var name: String
     
-    init(id: Int, name: String) {
+    init(id: String, name: String) {
         self.id = id
         self.name = name
+    }
+    
+    // Coding Keys for Codable conformance
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+    }
+    
+    // Required initializer for Decodable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+    }
+    
+    // Required method for Encodable
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
     }
 }

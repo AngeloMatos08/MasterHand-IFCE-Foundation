@@ -33,15 +33,31 @@ struct StoreTrioView: View {
 }
 
 
-//#Preview {
-//    let sampleSystems = [
-//        System(id: 1, name: "Ordem Paranormal", cover: nil, genre1: "Terror", genre2: "Investigação", price: 99.90),
-//        System(id: 2, name: "Tormenta20", cover: nil, genre1: "Fantasia", genre2: "Medieval", price: 67.42),
-//        System(id: 3, name: "Oblívio", cover: nil, genre1: "Anime", genre2: "Multiverso", price: 00.00)
-//    ]
-//    
-//    CategoryView(
-//        category: "Sistemas em Destaque",
-//        systems: sampleSystems
-//    )
-//}
+#Preview {
+    let cat1 = Category(
+        id: "terror",
+        name: "Terror"
+    )
+    let cat2 = Category(
+        id: "investigacao",
+        name: "Investigativo"
+    )
+    
+    let sample = System(
+        id: 1,
+        name: "Ordem Paranormal",
+        cover: nil,
+        categories: [cat1, cat2],
+        categoryShow1: cat1,
+        categoryShow2: cat2,
+        storeLink: "https://www.apple.com",
+        store_name: "Loja Oficial",
+        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
+        price: 99.90
+    )
+    
+    StoreTrioView(
+        category: "Sistemas em Destaque",
+        systems: [sample, sample, sample]
+    )
+}

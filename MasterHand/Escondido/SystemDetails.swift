@@ -26,7 +26,7 @@ struct SystemDetails: View {
                     Text(system.getShowCategories())
                         .font(.subheadline)
 
-                    Text(system.desc)
+                    Text(system.description)
                         .padding()
 
                     if let url = URL(string: system.storeLink) {
@@ -59,12 +59,12 @@ struct SystemDetails: View {
 
 #Preview {
     let cat1 = Category(
-        id: 1,
-        nome: "Terror"
+        id: "terror",
+        name: "Terror"
     )
     let cat2 = Category(
-        id: 1,
-        nome: "Investigativo"
+        id: "investigacao",
+        name: "Investigativo"
     )
     
     let sample = System(
