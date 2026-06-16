@@ -12,19 +12,18 @@ import SwiftDataSQLite
 @Model
 class System: Identifiable {
     var id: Int
-    var name: String
+    @SQLiteColumn("title") var name: String
     var cover: Data?
-    var categories: [Category]?
-    var categoryShow1: Category?
-    var categoryShow2: Category?
+    var categoryShow1: String?
+    var categoryShow2: String?
     var storeLink: String
-    var store_name: String
-    var desc: String
+    var storeName: String
+    @SQLiteColumn("description") var desc: String
     var price: Double?
     
     //metodo que retorna a sting com as showcategories
     func getShowCategories() -> String {
-        let names = [categoryShow1?.name, categoryShow2?.name]
+        let names = [categoryShow1, categoryShow2]
         
         let validNames = names
             .compactMap { $0 } // Remove qualquer valor nulo caso a categoria não exista
@@ -33,15 +32,24 @@ class System: Identifiable {
         return validNames.joined(separator: " | ")
     }
     
-    init(id: Int, name: String, cover: Data?, categories: [Category]?, categoryShow1: Category?, categoryShow2: Category?, storeLink: String, store_name: String, desc: String, price: Double?) {
+    init(
+        id: Int,
+        name: String,
+        cover: Data?,
+        categoryShow1: String?,
+        categoryShow2: String?,
+        storeLink: String,
+        storeName: String,
+        desc: String,
+        price: Double?
+    ) {
         self.id = id
         self.name = name
         self.cover = cover
-        self.categories = categories
         self.categoryShow1 = categoryShow1
         self.categoryShow2 = categoryShow2
         self.storeLink = storeLink
-        self.store_name = store_name
+        self.storeName = storeName
         self.desc = desc
         self.price = price
     }
