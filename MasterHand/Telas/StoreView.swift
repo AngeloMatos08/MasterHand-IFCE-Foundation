@@ -50,8 +50,6 @@ struct StoreView: View {
             
         }
         .listStyle(.plain)
-        .navigationTitle("Sistemas")
-
     }
 }
 

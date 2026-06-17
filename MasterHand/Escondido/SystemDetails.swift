@@ -12,7 +12,6 @@ import SwiftDataSQLite
 struct SystemDetails: View {
     @Environment(\.dismiss) var dismiss
     let system: System
-    @State private var isFavorite: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -49,34 +48,16 @@ struct SystemDetails: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: { isFavorite.toggle() }) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .foregroundStyle(isFavorite ? .red : .gray)
+                    Button(action: {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                            system.isFavorite.toggle()
+                        }
+                    }) {
+                        Image(systemName: system.isFavorite ? "heart.fill" : "heart")
+                            .foregroundStyle(system.isFavorite ? .red : .gray)
                     }
                 }
             }
         }
     }
-}
-
-#Preview {
-    let sample = System(
-        id: 1,
-        name: "Ordem Paranormal",
-        cover: nil,
-        categoryShow1: "Terror",
-        categoryShow2: "Investigação",
-        storeLink: "https://www.apple.com",
-        storeName: "Loja Oficial",
-        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
-        price: 99.90
-    )
-    
-    SystemDefaultCard(system: sample)
-    
-    .modelContainer( // ✅
-        for: [System.self],
-        inMemory: true,
-        sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
-    )
 }

@@ -11,7 +11,7 @@ struct MainView: View {
                         StoreView()
                     }
                     Tab("Favoritos", systemImage: "heart") {
-                        //tela favoritos
+                        FavoritesView()
                     }
                     Tab("Buscar", systemImage: "magnifyingglass", role:.search){
                         //tela de busca

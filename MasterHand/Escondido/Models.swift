@@ -20,6 +20,7 @@ class System: Identifiable {
     var storeName: String
     @SQLiteColumn("description") var desc: String
     var price: Double?
+    var isFavorite: Bool
     
     //metodo que retorna a sting com as showcategories
     func getShowCategories() -> String {
@@ -41,7 +42,8 @@ class System: Identifiable {
         storeLink: String,
         storeName: String,
         desc: String,
-        price: Double?
+        price: Double?,
+        isFavorite: Bool
     ) {
         self.id = id
         self.name = name
@@ -52,6 +54,7 @@ class System: Identifiable {
         self.storeName = storeName
         self.desc = desc
         self.price = price
+        self.isFavorite = isFavorite
     }
 }
 

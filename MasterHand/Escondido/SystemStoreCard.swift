@@ -64,25 +64,3 @@ struct SystemStoreCard: View {
         }
     }
 }
-
-#Preview {
-    let sample = System(
-        id: 1,
-        name: "Ordem Paranormal",
-        cover: nil,
-        categoryShow1: "Terror",
-        categoryShow2: "Investigação",
-        storeLink: "https://www.apple.com",
-        storeName: "Loja Oficial",
-        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
-        price: 99.90
-    )
-    
-    SystemDefaultCard(system: sample)
-    
-    .modelContainer( // ✅
-        for: [System.self],
-        inMemory: true,
-        sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
-    )
-}

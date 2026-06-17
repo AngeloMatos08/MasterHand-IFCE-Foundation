@@ -38,19 +38,3 @@ struct SystemDefaultCard: View {
     }
 }
 
-#Preview {
-    let sample = System(
-        id: 1,
-        name: "Ordem Paranormal",
-        cover: nil,
-        categoryShow1: "Terror",
-        categoryShow2: "Investigação",
-        storeLink: "https://www.apple.com",
-        storeName: "Loja Oficial",
-        desc: "Este é um exemplo de descrição para testar como o conteúdo aparece dentro da sheet. O layout deve ser scrollável caso o texto seja muito longo. AAAAAAAAAAAAAAAAAAA",
-        price: 0
-    )
-    
-    SystemDefaultCard(system: sample)
-
-}
