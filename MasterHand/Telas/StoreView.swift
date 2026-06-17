@@ -43,7 +43,7 @@ struct StoreView: View {
             StoreTrioView(
                 category: "Faroeste",
                 systems: systems.filter { system in
-                    [9, 14, 21].contains(system.id) // Substitua pelos IDs reais que deseja nesta categoria
+                    [9, 14, 5].contains(system.id) // Substitua pelos IDs reais que deseja nesta categoria
                 }
             )
             .listRowSeparator(.hidden)
