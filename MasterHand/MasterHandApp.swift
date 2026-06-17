@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import SwiftDataSQLite
 
 @main
 struct MasterHandApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .modelContainer( // ✅
+                    for: [System.self],
+                    inMemory: true,
+                    sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
+                )
         }
     }
 }

@@ -29,7 +29,7 @@ struct StoreTrioView: View {
                 ForEach(systems.prefix(3)) { system in
                     SystemStoreCard(system: system)
                 }
-            }.padding(.horizontal)
+            }.padding(.horizontal, 20)
         }
     }
 }

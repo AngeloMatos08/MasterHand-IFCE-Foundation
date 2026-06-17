@@ -1,4 +1,6 @@
 import SwiftUI
+import SwiftData
+import SwiftDataSQLite
 
 struct MainView: View {
     var body: some View {
@@ -6,7 +8,7 @@ struct MainView: View {
             HStack{
                 TabView {
                     Tab("Sistemas", systemImage: "hexagon") {
-                        //tela dos sistemas
+                        StoreView()
                     }
                     Tab("Favoritos", systemImage: "heart") {
                         //tela favoritos
@@ -15,11 +17,16 @@ struct MainView: View {
                         //tela de busca
                     }
                 }
-            }.padding(.horizontal, 20)
+            }
         }
     }
 }
 
 #Preview {
     MainView()
+        .modelContainer( // ✅
+            for: [System.self],
+            inMemory: true,
+            sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
+        )
 }
