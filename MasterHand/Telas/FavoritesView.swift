@@ -29,7 +29,7 @@ struct FavoritesView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading){
-                Text("Sistemas")
+                Text("Favoritos")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.horizontal,20)
