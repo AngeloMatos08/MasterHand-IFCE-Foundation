@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54D73C102FC868FE00F8864B /* MasterHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D73C102FC868FE00F8864B /* Master Hand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Master Hand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 		54D73C112FC868FE00F8864B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54D73C102FC868FE00F8864B /* MasterHand.app */,
+				54D73C102FC868FE00F8864B /* Master Hand.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54D73C0F2FC868FE00F8864B /* MasterHand */ = {
+		54D73C0F2FC868FE00F8864B /* Master Hand */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "MasterHand" */;
+			buildConfigurationList = 54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "Master Hand" */;
 			buildPhases = (
 				54D73C0C2FC868FE00F8864B /* Sources */,
 				54D73C0D2FC868FE00F8864B /* Frameworks */,
@@ -68,12 +68,12 @@
 			fileSystemSynchronizedGroups = (
 				54D73C122FC868FE00F8864B /* MasterHand */,
 			);
-			name = MasterHand;
+			name = "Master Hand";
 			packageProductDependencies = (
 				54D73C2B2FC8720F00F8864B /* SwiftDataSQLite */,
 			);
 			productName = FinalProjectFoundation;
-			productReference = 54D73C102FC868FE00F8864B /* MasterHand.app */;
+			productReference = 54D73C102FC868FE00F8864B /* Master Hand.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "MasterHand" */;
+			buildConfigurationList = 54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "Master Hand" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54D73C0F2FC868FE00F8864B /* MasterHand */,
+				54D73C0F2FC868FE00F8864B /* Master Hand */,
 			);
 		};
 /* End PBXProject section */
@@ -320,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "MasterHand" */ = {
+		54D73C0B2FC868FE00F8864B /* Build configuration list for PBXProject "Master Hand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D73C192FC868FF00F8864B /* Debug */,
@@ -329,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "MasterHand" */ = {
+		54D73C1B2FC868FF00F8864B /* Build configuration list for PBXNativeTarget "Master Hand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D73C1C2FC868FF00F8864B /* Debug */,
