@@ -11,10 +11,8 @@ import SwiftDataSQLite
 
 struct StoreTrioView: View {
     
-    @Query var systems: [System]
-    
     let category: String
-    
+    let systems: [System] // 1. Agora a View apenas recebe os sistemas que deve exibir
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -28,7 +26,8 @@ struct StoreTrioView: View {
             HStack(alignment: .center, spacing: 8) {
                 
                 // Exibimos no máximo 3 cards usando o prefix(3)
-                ForEach(systems.prefix(3)) {system in SystemStoreCard(system: system)
+                ForEach(systems.prefix(3)) { system in
+                    SystemStoreCard(system: system)
                 }
             }.padding(.horizontal)
         }
@@ -37,11 +36,10 @@ struct StoreTrioView: View {
 
 
 #Preview {
-    
     StoreTrioView(
         category: "Sistemas em Destaque",
+        systems: [] // Passamos uma lista vazia ou mockada para o preview
     )
-    
     .modelContainer( // ✅
         for: [System.self],
         inMemory: true,
