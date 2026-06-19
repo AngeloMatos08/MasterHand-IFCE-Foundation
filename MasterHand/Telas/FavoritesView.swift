@@ -28,38 +28,46 @@ struct FavoritesView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading){
-                Text("Favoritos")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.horizontal,20)
-                
-                Group {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("Favoritos")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 20)
+                        .foregroundStyle(.mhbig)
+                    
                     if favoriteSystems.isEmpty {
                         ContentUnavailableView(
                             "Sem Favoritos",
                             systemImage: "heart.slash",
                             description: Text("Os sistemas que você favoritar aparecerão aqui.")
                         )
+                        .padding(.top, 40)
                     } else {
-                        ScrollView {
-                            // O LazyVGrid distribui os cards perfeitamente em 2 colunas
-                            LazyVGrid(columns: columns, spacing: 24) {
-                                ForEach(favoriteSystems) { system in
-                                    // Mudamos para Button para gerenciar o clique manualmente
-                                    Button(action: {
-                                        selectedSystem = system
-                                    }) {
-                                        SystemDefaultCard(system: system)
-                                    }
-                                    .buttonStyle(.plain)
+                        // O LazyVGrid distribui os cards perfeitamente em 2 colunas
+                        LazyVGrid(columns: columns, spacing: 24) {
+                            ForEach(favoriteSystems) { system in
+                                // Mudamos para Button para gerenciar o clique manualmente
+                                Button(action: {
+                                    selectedSystem = system
+                                }) {
+                                    SystemDefaultCard(system: system)
                                 }
+                                .buttonStyle(.plain)
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.top, 8)
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
                     }
                 }
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                // Adiciona o fundo diretamente na VStack interna para que ele scrolle junto
+                .background(
+                    Image("Back")
+                        .resizable()
+                        .scaledToFill()
+                )
             }
             // Modificador que escuta o 'selectedSystem' e abre a sheet automaticamente
             .sheet(item: $selectedSystem) { system in

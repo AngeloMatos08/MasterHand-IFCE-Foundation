@@ -17,6 +17,7 @@ struct MainView: View {
                         //tela de busca
                     }
                 }
+                .tint(.mh)
             }
         }
     }

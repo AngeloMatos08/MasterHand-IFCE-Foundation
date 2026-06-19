@@ -15,28 +15,41 @@ struct SystemDetails: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 16) {
-                    SystemCover(cover: system.cover)
-                        .frame(width: 200)
-                        .padding(.top)
+            ZStack {
+                // Imagem de fundo específica para a tela de detalhes
+                Image("DetailsBack")
+                    .resizable()
+                    .ignoresSafeArea()
+                
+                ScrollView {
+                    VStack(alignment: .center, spacing: 16) {
+                        SystemCover(cover: system.cover)
+                            .frame(width: 270)
+                            .padding(.top)
 
-                    Text(system.name)
-                        .font(.title2).bold()
+                        Text(system.name)
+                            .font(.title).bold()
+                            .foregroundStyle(.mhbig)
+                            .multilineTextAlignment(.center)
 
-                    Text(system.getShowCategories())
-                        .font(.subheadline)
+                        Text(system.getShowCategories())
+                            .font(.headline)
+                            .foregroundStyle(.mh)
+                            .multilineTextAlignment(.center)
 
-                    Text(system.desc)
-                        .padding()
 
-                    if let url = URL(string: system.storeLink) {
-                        Link(destination: url) {
-                            Text("Disponível em: \(system.storeName)")
-                                .font(.footnote)
-                                .padding()
-                                .background(Color.blue.opacity(0.1))
-                                .cornerRadius(10)
+                        Text(system.desc)
+                            .padding(.horizontal, 24)
+                            .foregroundStyle(.white)
+
+                        if let url = URL(string: system.storeLink) {
+                            Link(destination: url) {
+                                Text("Disponível em: \(system.storeName)")
+                                    .font(.footnote)
+                                    .padding()
+                                    .background(Color.blue.opacity(0.1))
+                                    .cornerRadius(10)
+                            }
                         }
                     }
                 }
@@ -44,7 +57,7 @@ struct SystemDetails: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
-                        Image(systemName: "xmark.circle.fill").foregroundStyle(.gray)
+                        Image(systemName: "xmark").foregroundStyle(.mhbig)
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
@@ -52,9 +65,11 @@ struct SystemDetails: View {
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
                             system.isFavorite.toggle()
                         }
-                    }) {
+                    }
+                    )
+                    {
                         Image(systemName: system.isFavorite ? "heart.fill" : "heart")
-                            .foregroundStyle(system.isFavorite ? .red : .gray)
+                            .foregroundStyle(system.isFavorite ? .mhbig : .mhbig)
                     }
                 }
             }

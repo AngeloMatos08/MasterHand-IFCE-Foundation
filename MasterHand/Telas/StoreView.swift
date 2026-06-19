@@ -19,56 +19,62 @@ struct StoreView: View {
     }
     
     var body: some View {
-        List {
-            Text("Sistemas")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+        ZStack {
+            // Imagem de fundo comum "Back"
+            Image("Back")
+                .resizable()
+                .ignoresSafeArea()
             
-            // 1. Sugeridos
-            StoreTrioView(
-                category: "Sugeridos",
-                systems: systems.filter { [3, 1, 17].contains($0.id) }
-            )
-            .listRowSeparator(.hidden)
-            
-            // 2. Fantasia
-            StoreTrioView(
-                category: "Fantasia",
-                systems: systems.filter { [2, 16, 8].contains($0.id) }
-            )
-            .listRowSeparator(.hidden)
-            
-            // 3. Sobrevivência
-            StoreTrioView(
-                category: "Pós-Apocalípse",
-                systems: systems.filter { [15, 10, 19].contains($0.id) }
-            )
-            .listRowSeparator(.hidden)
-            
-            // 4. Faroeste
-            StoreTrioView(
-                category: "Faroeste",
-                systems: systems.filter { [9, 14, 5].contains($0.id) }
-            )
-            .listRowSeparator(.hidden)
-            
-// --- CATÁLOGO INTEIRO ---
-            VStack(alignment: .leading, spacing: 16) {
-                
-            // Percorre as fatias de 3 itens geradas dinamicamente
-                ForEach(Array(chunkedCatalog.enumerated()), id: \.offset) { index, chunk in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    Text("Sistemas")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.mhbig)
+                        .padding(.horizontal, 35)
+                    
+                    // 1. Sugeridos
                     StoreTrioView(
-                        // Mostra o título "Todos os Sistemas" apenas no primeiro bloco
-                        category: index == 0 ? "Todos os Sistemas" : "",
-                        systems: chunk
+                        category: "Sugeridos",
+                        systems: systems.filter { [3, 1, 17].contains($0.id) }
                     )
-                    .listRowSeparator(.hidden)
+                    .padding(.horizontal, 16)
+                    
+                    // 2. Fantasia
+                    StoreTrioView(
+                        category: "Fantasia",
+                        systems: systems.filter { [2, 16, 8].contains($0.id) }
+                    )
+                    .padding(.horizontal, 16)
+                    
+                    // 3. Sobrevivência
+                    StoreTrioView(
+                        category: "Pós-Apocalípse",
+                        systems: systems.filter { [15, 10, 19].contains($0.id) }
+                    )
+                    .padding(.horizontal, 16)
+                    
+                    // 4. Faroeste
+                    StoreTrioView(
+                        category: "Faroeste",
+                        systems: systems.filter { [9, 14, 5].contains($0.id) }
+                    )
+                    .padding(.horizontal, 16)
+                    
+        // --- CATÁLOGO INTEIRO ---
+                    // Percorre as fatias de 3 itens geradas dinamicamente
+                    ForEach(Array(chunkedCatalog.enumerated()), id: \.offset) { index, chunk in
+                        StoreTrioView(
+                            // Mostra o título "Todos os Sistemas" apenas no primeiro bloco
+                            category: index == 0 ? "Todos os Sistemas" : "",
+                            systems: chunk
+                        )
+                        .padding(.horizontal, 16)
+                    }
                 }
-                .listRowSeparator(.hidden)
+                .padding(.vertical, 16)
             }
-            
         }
-        .listStyle(.plain)
     }
 }
 

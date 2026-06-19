@@ -32,6 +32,8 @@ struct SystemCover: View {
         }
         .aspectRatio(aspectRatio, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: 8))
+        // Adiciona a sombra colorida (brilho) ao redor da capa do card
+        .shadow(color: Color.mhbig.opacity(0.20), radius: 4, x: 0, y: 4)
     }
 }
 

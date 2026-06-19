@@ -21,6 +21,7 @@ struct StoreTrioView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .padding(.horizontal,20)
+                .foregroundColor(.mhbig)
             
             // trio de sistemas
             HStack(alignment: .center, spacing: 8) {

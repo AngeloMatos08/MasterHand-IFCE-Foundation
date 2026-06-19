@@ -12,20 +12,22 @@ struct SystemDefaultCard: View {
     let system: System
     
     var body: some View {
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: .center, spacing: 12) {
             SystemCover(cover: system.cover)
                 .frame(width: 165)
+                // Pequeno padding extra para a sombra não ser cortada nas bordas do Grid
+                .padding(4)
             
             VStack(alignment: .center, spacing: 4) {
                 Text(system.name)
                     .font(.headline)
                     .frame(width: 165, alignment: .center)
                     .lineLimit(1)
-                
+                    .foregroundStyle(.mh)
                 HStack(spacing: 6) {
                     Text(system.getShowCategories())
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.mh)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .minimumScaleFactor(0.8)
@@ -37,4 +39,3 @@ struct SystemDefaultCard: View {
         .frame(width: 180)
     }
 }
-
