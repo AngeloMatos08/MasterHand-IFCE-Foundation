@@ -41,8 +41,10 @@ struct FavoritesView: View {
                             "Sem Favoritos",
                             systemImage: "heart.slash",
                             description: Text("Os sistemas que você favoritar aparecerão aqui.")
+                                .foregroundStyle(.mh)
                         )
                         .padding(.top, 40)
+                        .foregroundStyle(.mhbig)
                     } else {
                         // O LazyVGrid distribui os cards perfeitamente em 2 colunas
                         LazyVGrid(columns: columns, spacing: 24) {

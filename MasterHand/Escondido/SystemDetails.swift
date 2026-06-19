@@ -44,10 +44,10 @@ struct SystemDetails: View {
 
                         if let url = URL(string: system.storeLink) {
                             Link(destination: url) {
-                                Text("Disponível em: \(system.storeName)")
+                                Text("Disponível em \(system.storeName)")
                                     .font(.footnote)
                                     .padding()
-                                    .background(Color.blue.opacity(0.1))
+                                    .background(Color.mhbig.opacity(0.1))
                                     .cornerRadius(10)
                             }
                         }
