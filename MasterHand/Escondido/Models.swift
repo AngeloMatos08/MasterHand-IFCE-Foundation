@@ -22,14 +22,23 @@ class System: Identifiable {
     var price: Double?
     var isFavorite: Bool
     
-    //metodo que retorna a sting com as showcategories
-    func getShowCategories() -> String {
-        let names = [categoryShow1, categoryShow2]
-        
-        let validNames = names
-            .compactMap { $0 } // Remove qualquer valor nulo caso a categoria não exista
-            .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty } // Remove textos vazios
+    // Relacionamento com categorias
+    @Relationship(deleteRule: .noAction, inverse: \Category.systems) var categories: [Category] = []
     
+    // Metodo que retorna a string com as categorias relacionadas
+    func getShowCategories() -> String {
+        // Prioriza as categorias relacionadas via Relationship
+        if !categories.isEmpty {
+            let categoryNames = categories.map { $0.name }
+            return categoryNames.joined(separator: " | ")
+        }
+        
+        // Fallback para os dados legados (categoryShow1 e categoryShow2)
+        let names = [categoryShow1, categoryShow2]
+        let validNames = names
+            .compactMap { $0 }
+            .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+        
         return validNames.joined(separator: " | ")
     }
     
@@ -43,7 +52,8 @@ class System: Identifiable {
         storeName: String,
         desc: String,
         price: Double?,
-        isFavorite: Bool
+        isFavorite: Bool,
+        categories: [Category] = []
     ) {
         self.id = id
         self.name = name
@@ -55,6 +65,7 @@ class System: Identifiable {
         self.desc = desc
         self.price = price
         self.isFavorite = isFavorite
+        self.categories = categories
     }
 }
 
@@ -63,6 +74,9 @@ class System: Identifiable {
 class Category: Identifiable, Codable {
     var id: String
     var name: String
+    
+    // Inverso do relacionamento com System
+    @Relationship(deleteRule: .cascade, inverse: \System.categories) var systems: [System] = []
     
     init(id: String, name: String) {
         self.id = id

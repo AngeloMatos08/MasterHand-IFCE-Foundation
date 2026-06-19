@@ -26,10 +26,27 @@ struct SearchView: View {
             return false // Não filtra nada se estiver vazio (mostra tela inicial limpa)
         }
         
-        let matchesName = system.name.localizedCaseInsensitiveContains(searchText)
-        let matchesCategory = system.getShowCategories().localizedCaseInsensitiveContains(searchText)
+        let searchLower = searchText.lowercased()
         
-        return matchesName || matchesCategory
+        // Busca no nome do sistema
+        if system.name.localizedCaseInsensitiveContains(searchText) {
+            return true
+        }
+        
+        // Busca nas categorias relacionadas (novo relacionamento)
+        for category in system.categories {
+            if category.name.localizedCaseInsensitiveContains(searchText) {
+                return true
+            }
+        }
+        
+        // Fallback: Busca nos showcase categories (dados legados)
+        let showcaseCategories = system.getShowCategories()
+        if showcaseCategories.localizedCaseInsensitiveContains(searchText) {
+            return true
+        }
+        
+        return false
     }
     
     // Filtra e divide os resultados em "Destaque" (primeiro item) e "Relacionados" (resto)
