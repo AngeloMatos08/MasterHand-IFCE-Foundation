@@ -216,7 +216,7 @@ struct SearchView: View {
 #Preview {
     SearchView()
         .modelContainer(
-            for: [System.self],
+            for: [System.self, Category.self],
             inMemory: true,
             sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
         )
