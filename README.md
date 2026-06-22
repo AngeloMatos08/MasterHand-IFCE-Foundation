@@ -206,7 +206,7 @@ Cada sistema possui:
 </td>
 
 <td align="center">
-<a href="<a href="https://github.com/AngeloMatos08">
+<a href="<a href="https://github.com/GuimaraesPessoa">
 <img src="https://github.com/GuimaraesPessoa.png" width="100px;" alt="Pedro Guimarães"/><br>
 <sub><b>Pedro Guimarães</b></sub>
 </td>
