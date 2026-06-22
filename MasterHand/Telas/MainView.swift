@@ -16,6 +16,7 @@ struct MainView: View {
             }
         }
         .tint(.mh)
+        .preferredColorScheme(.dark)
     }
 }
 
