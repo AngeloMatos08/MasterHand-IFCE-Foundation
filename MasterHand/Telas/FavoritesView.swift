@@ -82,7 +82,7 @@ struct FavoritesView: View {
 #Preview {
     FavoritesView()
         .modelContainer(
-            for: [System.self],
+            for: [System.self, Category.self],
             inMemory: true,
             sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
         )

@@ -42,7 +42,7 @@ struct StoreTrioView: View {
         systems: [] // Passamos uma lista vazia ou mockada para o preview
     )
     .modelContainer( // ✅
-        for: [System.self],
+        for: [System.self, Category.self],
         inMemory: true,
         sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
     )

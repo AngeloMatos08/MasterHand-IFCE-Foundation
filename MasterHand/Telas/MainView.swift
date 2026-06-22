@@ -22,7 +22,7 @@ struct MainView: View {
 #Preview {
     MainView()
         .modelContainer(
-            for: [System.self],
+            for: [System.self, Category.self],
             inMemory: true,
             sqliteDatabasePath: Bundle.main.path(forResource: "db", ofType: "sqlite")!
         )
