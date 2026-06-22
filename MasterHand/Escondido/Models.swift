@@ -22,7 +22,7 @@ class System: Identifiable {
     var price: Double?
     var isFavorite: Bool
     
-    // Relacionamento com categorias
+    // Relacionamento com categorias (definimos o inverse aqui)
     @Relationship(deleteRule: .noAction, inverse: \Category.systems) var categories: [Category] = []
     
     // Metodo que retorna a string com as categorias relacionadas
@@ -75,8 +75,8 @@ class Category: Identifiable, Codable {
     var id: String
     var name: String
     
-    // Inverso do relacionamento com System
-    @Relationship(deleteRule: .cascade, inverse: \System.categories) var systems: [System] = []
+    // Inverso do relacionamento com System (removido o parâmetro "inverse" para evitar referência circular)
+    @Relationship(deleteRule: .cascade) var systems: [System] = []
     
     init(id: String, name: String) {
         self.id = id
