@@ -43,7 +43,7 @@ struct StoreView: View {
                     // 1. Sugeridos
                     StoreTrioView(
                         category: "Sugeridos",
-                        systems: systemsForIDs([3, 1, 17])
+                        systems: systemsForIDs([17, 1, 3])
                     )
                     .padding(.horizontal, 16)
                     
@@ -57,7 +57,7 @@ struct StoreView: View {
                     // 3. Sobrevivência
                     StoreTrioView(
                         category: "Pós-Apocalipse",
-                        systems: systemsForIDs([15, 10, 19])
+                        systems: systemsForIDs([15, 19, 10])
                     )
                     .padding(.horizontal, 16)
                     
@@ -69,7 +69,6 @@ struct StoreView: View {
                     .padding(.horizontal, 16)
                     
                     // --- CATÁLOGO INTEIRO ---
-                    // Percorre as fatias de 3 itens geradas dinamicamente
                     ForEach(Array(chunkedCatalog.enumerated()), id: \.offset) { index, chunk in
                         StoreTrioView(
                             // Mostra o título "Todos os Sistemas" apenas no primeiro bloco
@@ -78,8 +77,9 @@ struct StoreView: View {
                         )
                         .padding(.horizontal, 16)
                     }
+                    .padding(.vertical, 0)
                 }
-                .padding(.vertical, 16)
+                .padding(.vertical, 8)
             }
         }
     }
