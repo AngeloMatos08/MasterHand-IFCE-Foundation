@@ -37,16 +37,15 @@ A persistência dos dados é realizada utilizando **SwiftData** integrado a um b
 
 ## 📑 Índice
 
-* Sobre o Projeto
-* Ajustes e Melhorias
-* Tecnologias Utilizadas
-* Pré-requisitos
-* Como Executar
-* Como Utilizar
-* Screenshots
-* Estrutura do Projeto
-* Equipe
-* Licença
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Ajustes e Melhorias](#️-ajustes-e-melhorias)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Pré-requisitos](#-pré-requisitos)
+- [Como Executar](#-como-executar-o-projeto)
+- [Como Utilizar](#-como-utilizar)
+- [Screenshots](#-screenshots)
+- [Equipe](#-equipe-do-projeto)
+- [Licença](#-licença)
 
 ---
 
@@ -206,14 +205,15 @@ Cada sistema possui:
 </td>
 
 <td align="center">
-<a href="<a href="https://github.com/GuimaraesPessoa">
+<a href="https://github.com/GuimaraesPessoa">
 <img src="https://github.com/GuimaraesPessoa.png" width="100px;" alt="Pedro Guimarães"/><br>
 <sub><b>Pedro Guimarães</b></sub>
+</a>
 </td>
 
 <td align="center">
 <a href="https://github.com/torilocode">
-<img src="https://avatars.githubusercontent.com/u/248731344?v=4" width="100px;" alt="Henk Narciso"/><br>
+<img src="https://github.com/torilocode.png" width="100px;" alt="Henk Narciso"/><br>
 <sub><b>Henk Narciso</b></sub>
 </a>
 </td>
